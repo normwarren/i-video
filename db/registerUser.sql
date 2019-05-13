@@ -16,4 +16,4 @@ n AS (
 INSERT INTO ivideo.user_login (user_id, username, password)
     VALUES ((SELECT * FROM u), ${username}, ${hash})
   RETURNING
-    username, password
+    user_id
