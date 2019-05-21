@@ -51,8 +51,8 @@ app.get("/api/videos", videoCtrl.getVideos);
 app.post("/api/cart/add", cartCtrl.addToCart);
 app.get("/api/cart", cartCtrl.getCartById);
 app.delete("/api/cart/remove", cartCtrl.removeFromCart);
+app.get("/api/cart/total", cartCtrl.getCartTotal);
 
 //CHECKOUT
 app.post("/api/checkout/charge", checkoutCtrl.charge);
-// app.post("/api/cart/:id", cartCtrl.add);
 // app.delete("/api/cart/:id", cartController.delete);

@@ -9,7 +9,7 @@ const initialState = {
   authenticated: false,
   videos: [],
   cart: [],
-  total: 0
+  cartTotal: 0
 };
 
 //AUTH
@@ -17,6 +17,7 @@ const UPDATE_USER_ID = "UPDATE_USER_ID";
 const UPDATE_USERNAME = "UPDATE_USERNAME";
 const UPDATE_USER_DETAILS = "UPDATE_USER_DETAILS";
 const GET_USER = "GET_USER_DETAILS";
+const UPDATE_CART_TOTAL = "UPDATE_CART_TOTAL";
 
 //SHOP
 const GET_VIDEO = "GET_VIDEO";
@@ -66,6 +67,12 @@ export function addToCart(id) {
     payload: axios.post(`${URL.cart}/${id}`).then(response => response.data)
   };
 }
+export function updateCartTotal(cartTotal) {
+  return {
+    type: UPDATE_CART_TOTAL,
+    payload: +cartTotal
+  };
+}
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
@@ -89,6 +96,8 @@ export default function reducer(state = initialState, action) {
         cart: payload.cart,
         total: payload.total
       });
+    case UPDATE_CART_TOTAL:
+      return { ...state, cartTotal: payload };
     default:
       return state;
   }

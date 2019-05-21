@@ -15,6 +15,17 @@ module.exports = {
       res.sendStatus(500);
     }
   },
+  getCartTotal: async (req, res) => {
+    const db = req.app.get("db");
+    const user_id = parseInt(req.query.id);
+    try {
+      const data = await db.getTotalById({ user_id });
+      console.log(data);
+      res.status(200).send(data[0]);
+    } catch (err) {
+      res.sendStatus(500);
+    }
+  },
   getCartById: async (req, res) => {
     const db = req.app.get("db");
     const user_id = parseInt(req.query.id);

@@ -51,7 +51,7 @@ class LoginForm extends Component {
             onChange={this.handleFormInputUpdate}
           />
           <input
-            type="text"
+            type="password"
             name="loginPassword"
             placeholder="password"
             value={this.state.loginPassword}

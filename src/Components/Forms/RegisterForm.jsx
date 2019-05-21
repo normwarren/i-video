@@ -80,7 +80,7 @@ class RegisterForm extends Component {
             onChange={this.handleFormUpdate}
           />
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
             onChange={this.handleFormUpdate}

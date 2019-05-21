@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 import { CardElement, injectStripe } from "react-stripe-elements";
 
 class CheckoutForm extends Component {
@@ -12,7 +13,8 @@ class CheckoutForm extends Component {
   async submit(ev) {
     let { token } = await this.props.stripe.createToken({ name: "Name" });
     let response = await axios.post("/api/checkout/charge", {
-      tokenId: token.id
+      tokenId: token.id,
+      amount: this.props.cartTotal
     });
     if (response.ok) {
       if (response.ok) this.setState({ complete: true });
@@ -29,5 +31,7 @@ class CheckoutForm extends Component {
     );
   }
 }
-
-export default injectStripe(CheckoutForm);
+const mapStateToProps = state => {
+  return { ...state };
+};
+export default injectStripe(connect(mapStateToProps)(CheckoutForm));

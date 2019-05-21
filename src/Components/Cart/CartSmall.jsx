@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { connect } from "react-redux";
+import { updateCartTotal } from "../../redux/auth.reducer";
 
 const Wrapper = styled.div`
   background: rgb(105, 96, 112);
@@ -41,7 +42,8 @@ class CartSmall extends Component {
   constructor() {
     super();
     this.state = {
-      cartItems: []
+      cartItems: [],
+      cartTotal: 0
     };
   }
   async componentDidMount() {
@@ -50,10 +52,17 @@ class CartSmall extends Component {
         cartItems: res.data
       });
     });
+    await axios.get("/api/cart/total?id=" + this.props.user_id).then(res => {
+      const { total_price } = res.data;
+      this.setState({
+        cartTotal: total_price
+      });
+      this.props.updateCartTotal(total_price);
+    });
   }
 
   render() {
-    const { cartItems } = this.state;
+    const { cartItems, cartTotal } = this.state;
     const cartComponents = cartItems.map(cartItem => (
       <Row key={cartItem.cart_item_id}>
         <span className="full">
@@ -66,10 +75,18 @@ class CartSmall extends Component {
         </span>
       </Row>
     ));
-    return <Wrapper>{cartComponents}</Wrapper>;
+    return (
+      <Wrapper>
+        <div>{cartComponents}</div>
+        <div className='"small-text2'>Total: {cartTotal}</div>
+      </Wrapper>
+    );
   }
 }
 const mapStateToProps = state => {
   return { ...state };
 };
-export default connect(mapStateToProps)(CartSmall);
+export default connect(
+  mapStateToProps,
+  { updateCartTotal }
+)(CartSmall);

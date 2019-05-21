@@ -1,15 +1,14 @@
 const stripe = require("stripe")("sk_test_1LivSkQRB1cUQeHhFqvl7cfD00ZtRxo3qZ");
 module.exports = {
   charge: async (req, res) => {
-    // const { user_id, product_id, product_price } = req.body;
-    // Number(product_price);
-    //const db = req.app.get("db");
+    const { amount, tokenId } = req.body;
+    const adjAmount = (+amount * 100).toFixed(0);
     try {
       let { status } = await stripe.charges.create({
-        amount: 2000,
+        amount: adjAmount,
         currency: "usd",
         description: "An example charge",
-        source: req.body.tokenId
+        source: tokenId
       });
       res.status(200).send(status);
     } catch (err) {
