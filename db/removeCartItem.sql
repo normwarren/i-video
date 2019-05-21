@@ -1,0 +1,1 @@
+DELETE FROM ivideo.cart_items WHERE id = ${cart_item_id}

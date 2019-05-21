@@ -37,3 +37,24 @@ CREATE TABLE ivideo.role
     password varchar(255),
     CONSTRAINT pk_user_login PRIMARY KEY ( id ) 
   ) 
+
+  CREATE TABLE ivideo.cart (
+    id serial  NOT NULL,
+    user_id int UNIQUE NOT NULL,
+    inserted_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    checked_out timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT cart_pk PRIMARY KEY (id)
+);
+
+-- Table: cart_items
+CREATE TABLE ivideo.cart_items (
+    id serial  NOT NULL,
+    cart_id int  NOT NULL,
+    product_id int  NOT NULL,
+    quantity int,
+    price numeric,
+    inserted_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT cart_items_pk PRIMARY KEY (id)
+);

@@ -273,26 +273,52 @@ CREATE TABLE ivideo.video_series_product
      video_id                int, 
      sku                     varchar(255), 
      NAME                    varchar(255), 
-     description             text NULL, 
+     description             text, 
      product_status_id       integer, 
-     regular_price           numeric NULL DEFAULT 0, 
-     discount_price          numeric NULL DEFAULT 0, 
-     quantity                integer NULL DEFAULT 0, 
-     taxable                 bool NULL DEFAULT false, 
+     regular_price           numeric DEFAULT 0, 
+     discount_price          numeric DEFAULT 0, 
+     quantity                integer DEFAULT 0, 
+     taxable                 bool DEFAULT false, 
      inserted_at             timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP 
      NOT NULL, 
      updated_at              timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP 
      NOT NULL, 
-     subscription_product_id int NOT NULL, 
-     series_video_product_id int NOT NULL, 
-     series_video_video_id   int NOT NULL, 
+     subscription_product_id int, 
+     series_video_product_id int, 
+     series_video_video_id   int, 
      CONSTRAINT pk_product PRIMARY KEY ( id ) 
   ); 
-  CREATE TABLE ivideo.user_login(
+      CREATE TABLE ivideo.user_login(
+		id          serial NOT NULL, 
     user_id integer,
     username varchar(255), 
-    password varchar(255)
+    password varchar(255),
+    CONSTRAINT pk_user_login PRIMARY KEY ( id ) 
   ) 
+
+  CREATE TABLE ivideo.cart (
+    id serial  NOT NULL,
+    user_id int UNIQUE NOT NULL,
+    inserted_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    checked_out timestamp WITH time zone,
+    CONSTRAINT cart_pk PRIMARY KEY (id)
+);
+
+-- Table: cart_items
+CREATE TABLE ivideo.cart_items (
+    id serial  NOT NULL,
+    cart_id int  NOT NULL,
+    product_id int  NOT NULL,
+    cart_prod_key int UNIQUE NOT NULL,
+    quantity int,
+    price numeric DEFAULT 0,
+    inserted_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp WITH time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT cart_items_pk PRIMARY KEY (id)
+);
+
+
 
 -- foreign keys
 -- Reference: fk_category_parent_category (table: category)

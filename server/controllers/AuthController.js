@@ -72,5 +72,10 @@ module.exports = {
   logout: (req, res) => {
     req.session.destroy();
     res.sendStatus(200);
+  },
+  getUser: (req, res) => {
+    const { session } = req;
+    //res.status(200).send("i am alive");
+    res.status(200).send(session.user);
   }
 };

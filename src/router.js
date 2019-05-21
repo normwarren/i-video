@@ -5,6 +5,10 @@ import Login from "./Components/Forms/Login";
 import LoginForm from "./Components/Forms/LoginForm";
 import RegisterForm from "./Components/Forms/RegisterForm";
 import Details from "./Components/Profile/Details";
+import Shop from "./Components/Shop/Shop";
+import Video from "./Components/Shop/IVideos/Video";
+import Cart from "./Components/Cart/Cart";
+import Checkout from "./Components/Checkout/Checkout";
 
 export default (
   <Switch>
@@ -19,5 +23,9 @@ export default (
       )}
     />
     <Route path="/info" component={Details} />
+    <Route component={Shop} path="/shop" />
+    <Route component={Video} path="/video" />
+    <Route component={Cart} path="/cart" />
+    <Route component={Checkout} path="/checkout" />
   </Switch>
 );

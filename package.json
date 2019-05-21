@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "axios": "^0.18.0",
     "bcrypt": "^3.0.6",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
-    "express": "^4.16.4",
+    "express": "^4.17.0",
     "express-session": "^1.16.1",
     "massive": "^5.8.0",
     "react": "^16.8.6",
@@ -15,7 +17,12 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "redux": "^4.0.1"
+    "react-slick": "^0.24.0",
+    "react-stripe-elements": "^3.0.0",
+    "redux": "^4.0.1",
+    "slick-carousel": "^1.8.1",
+    "stripe": "^7.0.0",
+    "styled-components": "^4.2.0"
   },
   "proxy": "http://localhost:3999",
   "main": "server/server.js",

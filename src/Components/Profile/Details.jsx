@@ -28,7 +28,7 @@ class Details extends Component {
     const { firstname, lastname, email } = this.props;
     return (
       <div>
-        <h1>Details</h1>
+        <h1>Account Details</h1>
         {this.props.firstname ? (
           <>
             <h3>

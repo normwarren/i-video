@@ -1,0 +1,15 @@
+.full {
+  flex: 1;
+  margin-left: 10px;
+}
+span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.black-text {
+  color: #000;
+}
+.small-text {
+  font-size: 14px;
+}
