@@ -1,16 +1,9 @@
-const path = require("path");
 const express = require("express");
 require("dotenv").config();
 const app = express();
 const massive = require("massive");
 const session = require("express-session");
 const checkForSession = require("./middlewares/checkForSession");
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../build/index.html"));
-});
-app.use(express.static(`${__dirname}/../build`));
-
 const {
   SESSION_SECRET,
   SERVER_PORT,
@@ -23,6 +16,7 @@ const cartCtrl = require("./controllers/cartController");
 const checkoutCtrl = require("./controllers/checkoutController");
 
 //MIDDLEWARES
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 app.use(
   session({

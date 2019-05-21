@@ -30,13 +30,13 @@ const Row = styled.div`
     font-size: 12px;
   }
 `;
-// const Image = styled.div`
-//   background-image: url(${props => props.img});
-//   width: 62px;
-//   height: 62px;
-//   background-size: cover;
-//   background-position: 50%;
-// `;
+const Image = styled.div`
+  background-image: url(${props => props.img});
+  width: 62px;
+  height: 62px;
+  background-size: cover;
+  background-position: 50%;
+`;
 
 class CartSmall extends Component {
   constructor() {
@@ -78,7 +78,7 @@ class CartSmall extends Component {
     return (
       <Wrapper>
         <div>{cartComponents}</div>
-        <div className='"small-text2'>Total: {cartTotal}</div>
+        <div className="small-text2">Total: {cartTotal}</div>
       </Wrapper>
     );
   }

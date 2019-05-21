@@ -17,7 +17,6 @@ class Checkout extends Component {
     };
   }
   async componentDidMount() {
-    console.log(this.props);
     const { user_id } = this.props;
     await axios.get("/api/cart?id=" + user_id).then(res => {
       this.setState({
@@ -46,7 +45,7 @@ class Checkout extends Component {
       body: token.id
     });
 
-    if (response.ok) console.log("Purchase Complete!");
+    //if (response.ok) console.log("Purchase Complete!");
   }
 
   render() {
