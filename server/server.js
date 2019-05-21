@@ -1,14 +1,16 @@
+const path = require("path");
 const express = require("express");
 require("dotenv").config();
 const app = express();
 const massive = require("massive");
 const session = require("express-session");
 const checkForSession = require("./middlewares/checkForSession");
-const path = require("path"); // Usually moved to the start of file
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
+app.use(express.static(`${__dirname}/../build`));
+
 const {
   SESSION_SECRET,
   SERVER_PORT,
