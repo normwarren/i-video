@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { updateUserId, updateUsername } from "../../redux/auth.reducer";
 import axios from "axios";
+import "./LoginForm.css";
 
 class LoginForm extends Component {
   constructor() {
@@ -39,9 +40,9 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <>
-        <h1>Login</h1>
-        <form onSubmit={this.handleLoginFormSubmit}>
+      <div class="LoginFormContainer">
+        <h2>Login</h2>
+        <form onSubmit={this.handleLoginFormSubmit} class="LoginForm">
           <input
             type="text"
             name="loginUsername"
@@ -59,7 +60,7 @@ class LoginForm extends Component {
           <button>Login</button>
         </form>
         {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
-      </>
+      </div>
     );
   }
 }

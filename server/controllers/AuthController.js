@@ -29,7 +29,6 @@ module.exports = {
       username,
       user_id
     };
-    //console.log(session.user.user_id[0]);
     res.status(200).send(session.user.user_id[0]);
   },
   login: async (req, res) => {
@@ -43,7 +42,6 @@ module.exports = {
         req.body.loginPassword,
         user[0].password
       );
-      //console.log(user[0]);
       if (authenticated) {
         res.status(200).send({ authenticated, user_id: user[0].user_id });
       } else {
@@ -59,11 +57,8 @@ module.exports = {
     const { session } = req;
 
     try {
-      //const { user_id: id } = session.user;
       const id = req.query.id;
       const data = await db.getUserDetails({ id });
-      //console.log(db.getUserDetails);
-      //console.log(session.user, id, data);
       res.status(200).send(data[0]);
     } catch (err) {
       res.sendStatus(500);

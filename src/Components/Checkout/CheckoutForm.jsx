@@ -12,14 +12,12 @@ class CheckoutForm extends Component {
   async submit(ev) {
     let { token } = await this.props.stripe.createToken({ name: "Name" });
     let response = await axios.post("/api/checkout/charge", {
-      body: token.id
+      tokenId: token.id
     });
     if (response.ok) {
-      console.log("Purchase Complete!");
       if (response.ok) this.setState({ complete: true });
     }
   }
-
   render() {
     if (this.state.complete) return <h1>Purchase Complete</h1>;
     return (

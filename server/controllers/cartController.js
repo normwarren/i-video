@@ -1,13 +1,10 @@
 module.exports = {
   addToCart: async (req, res) => {
-    // console.log(req.body);
     const { user_id, product_id, product_price } = req.body;
     Number(product_price);
     const db = req.app.get("db");
     try {
       let cart_id = await db.addCart({ user_id });
-      // console.log(db.updateCart);
-      // console.log(cart_id[0]["id"]);
       await db.addCartItems({
         cart_id: cart_id[0]["id"],
         product_id,

@@ -7,6 +7,7 @@ import CheckoutForm from "./CheckoutForm";
 import CartSmall from "../Cart/CartSmall";
 // import CartTable from "../Cart/CartTable";
 //import { getUser } from "../../redux/auth.reducer";
+import "./Checkout.css";
 
 //import CheckoutHeader from "./CheckoutHeader";
 class Checkout extends Component {
@@ -54,18 +55,11 @@ class Checkout extends Component {
   render() {
     const { firstname, lastname, email } = this.props;
     return (
-      <>
+      <div class="CheckoutContainer">
         <h3>
           Checkout for: {firstname} {lastname}
         </h3>
         <CartSmall />
-        <input
-          type="text"
-          name="purchaseEmail"
-          placeholder="purchase email"
-          value={email}
-          onChange={this.handleFormInputUpdate}
-        />
 
         <div className="stripe">
           <Elements>
@@ -74,7 +68,7 @@ class Checkout extends Component {
         </div>
 
         {this.state.loginError && <h3>{this.state.loginErrorMessage}</h3>}
-      </>
+      </div>
     );
   }
 }

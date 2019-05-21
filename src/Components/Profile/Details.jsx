@@ -6,10 +6,10 @@ import {
   updateUsername
 } from "../../redux/auth.reducer";
 import axios from "axios";
+import "./Details.css";
 
 class Details extends Component {
   componentDidMount() {
-    //console.log("/auth/details?id=" + this.props.user_id);
     axios.get("/auth/details?id=" + this.props.user_id).then(res => {
       this.props.updateUserDetails(res.data);
     });
@@ -24,11 +24,10 @@ class Details extends Component {
   };
 
   render() {
-    //console.log(this.props);
     const { firstname, lastname, email } = this.props;
     return (
-      <div>
-        <h1>Account Details</h1>
+      <div class="DetailsContainer">
+        <h2>Account Details</h2>
         {this.props.firstname ? (
           <>
             <h3>
@@ -38,7 +37,7 @@ class Details extends Component {
             <button onClick={this.logout}>Logout</button>
           </>
         ) : (
-          <div>Loading...</div>
+          <div class="DetailsContainer">Loading...</div>
         )}
       </div>
     );

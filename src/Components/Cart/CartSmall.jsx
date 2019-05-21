@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { connect } from "react-redux";
-//import Divider from "@material-ui/core/Divider";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background: rgb(105, 96, 112);
+`;
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -22,7 +23,7 @@ const Row = styled.div`
   }
   .black-text {
     font-size: 13px;
-    color: #000;
+    color: hsl(0, 0%, 100%);
   }
   .small-text {
     font-size: 12px;
@@ -53,14 +54,15 @@ class CartSmall extends Component {
 
   render() {
     const { cartItems } = this.state;
-    //console.log(cartItems);
     const cartComponents = cartItems.map(cartItem => (
       <Row key={cartItem.cart_item_id}>
         <span className="full">
           <Row>
-            <span className="black-text">{cartItem.name}</span>
+            <span className="black-text">
+              {cartItem.name} - ${cartItem.price}
+            </span>
+            <span className="small-text" />
           </Row>
-          <div className="small-text">${cartItem.price}</div>
         </span>
       </Row>
     ));

@@ -1,19 +1,15 @@
-.VideoComponent {
+.DetailsContainer {
+  /* rgb(105, 96, 112); */
   background: rgb(105, 96, 112);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3em;
-  text-align: center;
-  color: white;
   padding: 1.5em;
+  color: white;
 }
-.VideoParent {
-  display: flex;
-}
-.Video_atcContainer {
-  padding: 0.5em;
+
+.DetailsContainer button {
+  /* max-width: 10%; */
   background: cyan;
   border-radius: 20%;
-  color: black;
 }

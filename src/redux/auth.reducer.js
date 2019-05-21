@@ -68,7 +68,6 @@ export function addToCart(id) {
 }
 export default function reducer(state = initialState, action) {
   const { type, payload } = action;
-  console.log(payload, type);
   switch (type) {
     case UPDATE_USER_ID:
       return { ...state, user_id: payload };

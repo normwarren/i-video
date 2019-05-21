@@ -1,0 +1,21 @@
+.RegisterFormContainer {
+  background: rgb(105, 96, 112);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5em;
+  color: white;
+}
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+}
+.LoginForm input {
+  margin-bottom: 1em;
+  /* max-width: 15%; */
+}
+.LoginForm button {
+  /* max-width: 10%; */
+  background: cyan;
+  border-radius: 20%;
+}

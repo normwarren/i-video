@@ -1,0 +1,11 @@
+.home {
+  margin-bottom: 10em;
+}
+.home-image {
+  width: 100%;
+}
+.below-images {
+  display: flex;
+  justify-content: space-around;
+  background: cyan;
+}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import "./CartTable.css";
 
 class CartTable extends Component {
   constructor() {
@@ -19,11 +20,8 @@ class CartTable extends Component {
   }
 
   handleRemoveFromCart = async cart_item_id => {
-    console.log(cart_item_id);
-    //const { cart_item_id } = this.props;
     try {
       await axios.delete("/api/cart/remove?id=" + cart_item_id);
-      console.log("my params for cart/add", cart_item_id);
       //remove from array of cartItems
       //display new array of cartItems
     } catch (err) {}
@@ -32,19 +30,19 @@ class CartTable extends Component {
   render() {
     const { cartItems } = this.state; //history
     const cartComponents = cartItems.map(cartItem => (
-      <div key={cartItem.cart_item_id}>
+      <div key={cartItem.cart_item_id} class="CartTableComponent">
         <img src="" alt="" />
         <h3>{cartItem.name}</h3>
         <p>${`${cartItem.price}`}</p>
         <div
-          id="Video__atcContainer"
+          class="Video_atcContainer"
           onClick={() => this.handleRemoveFromCart(cartItem.cart_item_id)}
         >
           <span> Remove </span>
         </div>
       </div>
     ));
-    return <div id="Video__parent">{cartComponents}</div>;
+    return <div class="VideoParent">{cartComponents}</div>;
   }
 }
 const mapStateToProps = state => {

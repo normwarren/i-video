@@ -4,7 +4,12 @@ const app = express();
 const massive = require("massive");
 const session = require("express-session");
 const checkForSession = require("./middlewares/checkForSession");
-const { SESSION_SECRET, SERVER_PORT, CONNECTION_STRING } = process.env;
+const {
+  SESSION_SECRET,
+  SERVER_PORT,
+  CONNECTION_STRING
+  //STRIPE_SECRET
+} = process.env;
 const authCtrl = require("./controllers/AuthController");
 const videoCtrl = require("./controllers/videoController");
 const cartCtrl = require("./controllers/cartController");

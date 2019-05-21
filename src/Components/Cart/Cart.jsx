@@ -3,7 +3,7 @@ import React, { Component } from "react";
 //import Search from './Search/Search';
 import CartTable from "../Cart/CartTable";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import "./Cart.css";
 
 import { connect } from "react-redux";
 import { getVideo, getUser } from "../../redux/auth.reducer";
@@ -11,10 +11,10 @@ import { getVideo, getUser } from "../../redux/auth.reducer";
 class Cart extends Component {
   render() {
     return (
-      <div>
+      <div class="CartComponent">
         <CartTable />
         <Link to={`/checkout`} style={{ textDecoration: "none" }}>
-          <Button>Check Out</Button>
+          <button class="CheckOutButton">Check Out</button>
         </Link>
       </div>
     );

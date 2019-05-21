@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUserId, updateUsername } from "../../redux/auth.reducer";
 import axios from "axios";
+import "./RegisterForm.css";
 
 class RegisterForm extends Component {
   constructor() {
@@ -40,7 +41,6 @@ class RegisterForm extends Component {
         lastname,
         email
       });
-      //console.log(res.data.user_id, username);
 
       this.props.updateUsername(username);
       this.props.updateUserId(res.data.user_id);
@@ -52,9 +52,9 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <>
-        <h1>Need an account? Sign up here</h1>
-        <form onSubmit={this.handleSignUpFormSubmit}>
+      <div class="RegisterFormContainer">
+        <h2>Sign up here</h2>
+        <form onSubmit={this.handleSignUpFormSubmit} class="LoginForm">
           <input
             type="text"
             name="firstname"
@@ -90,7 +90,7 @@ class RegisterForm extends Component {
         {this.state.registerError && (
           <h3 style={{ color: "tomato" }}>{this.state.registerErrorMessage}</h3>
         )}
-      </>
+      </div>
     );
   }
 }

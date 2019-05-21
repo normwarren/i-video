@@ -14,19 +14,9 @@ class Shop extends Component {
 
   render() {
     return (
-      // <div id="Shop__parent">
-      //   <User />
-      //   <SignOut history={history} />
-
-      //   <div id="Shop__child">
-      //     <Search history={history} />
-
       <div>
         <Video />
       </div>
-
-      //   </div>
-      // </div>
     );
   }
 }

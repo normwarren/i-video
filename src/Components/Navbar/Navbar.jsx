@@ -4,6 +4,14 @@ import "./Navbar.css";
 
 const Navbar = ({ username }) => (
   <nav class="NavContainer">
+    <div>
+      <img
+        src="https://github.com/normwarren/i-video/blob/master/DoItYourself-icon.png?raw=true"
+        alt="DIY-icon"
+        class="nav-icon"
+      />
+      Categories
+    </div>
     <ul class="Nav">
       <li>
         <Link to="/">Home</Link>
