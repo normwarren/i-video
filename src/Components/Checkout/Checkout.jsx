@@ -5,11 +5,8 @@ import axios from "axios";
 import { Elements } from "react-stripe-elements";
 import CheckoutForm from "./CheckoutForm";
 import CartSmall from "../Cart/CartSmall";
-// import CartTable from "../Cart/CartTable";
-//import { getUser } from "../../redux/auth.reducer";
 import "./Checkout.css";
 
-//import CheckoutHeader from "./CheckoutHeader";
 class Checkout extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +50,7 @@ class Checkout extends Component {
   }
 
   render() {
-    const { firstname, lastname, email } = this.props;
+    const { firstname, lastname } = this.props;
     return (
       <div class="CheckoutContainer">
         <h3>

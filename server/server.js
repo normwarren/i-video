@@ -4,6 +4,11 @@ const app = express();
 const massive = require("massive");
 const session = require("express-session");
 const checkForSession = require("./middlewares/checkForSession");
+const path = require("path"); // Usually moved to the start of file
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
+});
 const {
   SESSION_SECRET,
   SERVER_PORT,
