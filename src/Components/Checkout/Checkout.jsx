@@ -45,7 +45,7 @@ class Checkout extends Component {
       body: token.id
     });
 
-    //if (response.ok) console.log("Purchase Complete!");
+    if (response.ok) console.log("Purchase Complete!");
   }
 
   render() {

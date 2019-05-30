@@ -1,4 +1,7 @@
-const stripe = require("stripe")("sk_test_1LivSkQRB1cUQeHhFqvl7cfD00ZtRxo3qZ");
+require("dotenv").config();
+const { STRIPE_SECRET } = process.env;
+const stripe = require("stripe")(STRIPE_SECRET);
+//
 module.exports = {
   charge: async (req, res) => {
     const { amount, tokenId } = req.body;

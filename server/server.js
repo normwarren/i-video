@@ -44,6 +44,7 @@ app.post("/auth/login", authCtrl.login);
 app.get("/auth/details", authCtrl.getDetails);
 app.get("/auth/logout", authCtrl.logout);
 app.get("/api/user", authCtrl.getUser);
+app.put("/auth/update", authCtrl.updateDetails);
 
 //VIDEOS
 app.get("/api/videos", videoCtrl.getVideos);

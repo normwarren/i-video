@@ -72,5 +72,27 @@ module.exports = {
     const { session } = req;
     //res.status(200).send("i am alive");
     res.status(200).send(session.user);
+  },
+  updateDetails: async (req, res) => {
+    const db = req.app.get("db");
+    const { session } = req;
+    const id = req.query.id;
+    const { firstname: first_name, lastname: last_name, email } = req.body;
+    try {
+      const name = await db.updateUserInfo({
+        id,
+        first_name,
+        last_name,
+        email
+      });
+      session.user = {
+        first_name: name,
+        user_id: id
+      };
+      res.status(200).send(session.user);
+    } catch (err) {
+      console.log("error", err);
+      res.sendStatus(500);
+    }
   }
 };
